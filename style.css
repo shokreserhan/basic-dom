@@ -11,6 +11,11 @@ body{
     left: -250px;
 }
 
+.sub-header{
+    color: #27ae60;
+   text-shadow:  2px 2px #2c3e50;
+}
+
 #playing-field{
     width: 500px;
     height: 500px;
