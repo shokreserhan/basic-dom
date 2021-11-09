@@ -1,5 +1,5 @@
 // // console.log(document)
-
+const playField = document.getElementById( "playing-field" )
 const ball = document.getElementById( "block" )
 ball.style.backgroundColor = "yellow"
 
@@ -17,36 +17,39 @@ document.body.appendChild( subHeader )
 subHeader.setAttribute( "class" , "sub-header" )
 
 //function that change the background color of the playing field when clicking on it 
- const clickdiv = function () {
-    const playfield = document.getElementById( "playing-field" )
-    playfield.style.backgroundColor = "#8e44ad"
- }
+const clickdiv = function () {
+   playField.style.backgroundColor = "#8e44ad"
+}
 
  //all this functions to move the ball when pressing on the arrows
 const up = document.getElementById( "up" )
 
-  up.onclick = function () {
-    let up1 = parseInt( ball.style.top ) || 0
-    ball.style.top = up1 - 15 + "px"
- }
+up.onclick = function () {
+   let up1 = parseInt( ball.style.top ) || 0
+   if( up1 >= 15 )
+      ball.style.top = up1 - 15 + "px"
+}
 
- const right = document.getElementById( "right" )
+const right = document.getElementById( "right" )
 
- right.onclick = function () {
-    let right1 = parseInt( ball.style.left ) || 0
-    ball.style.left = right1 + 15+ "px"
-  }
+right.onclick = function () {
+   let left1 = parseInt( ball.style.left ) || 0
+   if( left1 < playField.offsetWidth - ball.offsetWidth - 15)
+      ball.style.left = left1 + 15 + "px"
+}
 
-  const left = document.getElementById( "left" )
+const left = document.getElementById( "left" )
 
-  left.onclick = function () {
-    let left1 = parseInt( ball.style.left ) || 0
-    ball.style.left = left1 - 15 + "px"
-   }
+left.onclick = function () {
+   let left1 = parseInt( ball.style.left ) || 0
+   if( left1 >= 15 )
+      ball.style.left = left1 - 15 + "px"
+}
 
-  const down = document.getElementById( "down" )
+const down = document.getElementById( "down" )
 
-  down.onclick = function () {
-     let up1 = parseInt( ball.style.top ) || 0
-     ball.style.top = up1 + 15 + "px"
- }
+down.onclick = function () {
+   let up1 = parseInt( ball.style.top ) || 0
+   if( up1 < playField.offsetHeight - ball.offsetHeight - 15)
+      ball.style.top = up1 + 15 + "px"
+}
